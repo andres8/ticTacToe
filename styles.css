@@ -11,5 +11,10 @@
   border-top-width: 45px;
   border-bottom-width: 45px;
   box-shadow: 7px 10px 34px 3px rgba(0, 0, 0, 0.68);
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Pangolin', cursive;
+}
+
+.title{
+  color: rgba(220,220,220,1);
+
 }
