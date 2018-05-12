@@ -16,5 +16,15 @@
 
 .title{
   color: rgba(220,220,220,1);
+}
 
+.boton{
+  height: 123.3px;
+  width: 121px;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: #ff000000;
+  display: inline-block;
+  border-style: solid;
+  border-color: rgba(240,180,135,1);
 }

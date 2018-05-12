@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('#secondScreen, #thirdScreen').hide();
+  $('#secondScreen, #thirdScreen, #fourScreen').hide();
   $('#onePlayer').click(function(){
     $('#firstScreen').hide();
     $('#secondScreen').show();
@@ -9,8 +9,11 @@ $(document).ready(function(){
     $('#thirdScreen').show();
   });
   $('#back, #back2').click(function(){
-    $('#thirdScreen').hide();
-    $('#secondScreen').hide();
+    $('#thirdScreen, #secondScreen').hide();
     $('#firstScreen').show();
+  });
+  $('#x, #o').click(function(){
+    $('#thirdScreen, #secondScreen').hide();
+    $('#fourScreen').show();
   });
 });
