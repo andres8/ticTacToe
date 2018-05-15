@@ -15,19 +15,26 @@
   </head>
   <body>
     <div class="container">
+      <button type="button" class="reset" style="display: block;" >Reset All</button>
+      <p class="score1" style="display: block;">
+        <span class='points'>0</span>
+        <span class='nombre'>Player 1</span>
+      </p>
+      <i class='divider' style='display: inline;'>|</i>
+      <p class="score2" style="display: block;">
+        <span class='points'>0</span>
+        <span class='nombre'>Computer</span>
+      </p>
       <div class="gameBack">
+        <div class="turnPlayerOne" style='top: -45px;'>
+          <p>Player One turn</p>
+        </div>
+        <div class="turnPlayerTwo" style='top: -45px;'>
+          <p>Computer turn</p>
+        </div>
         <div id='firstScreen'>
           <div class='text-center mt-5 title'>
-            <!--<div class="borde">
-              <div class="score">
-                <p>0 </br>player 1</p>
-              </div>
-              <div class="reset">
-                <button type="button" >Reset All</button>
-              </div>
-            </div>-->
             <h1>How do you </br> want to play?</h1>
-
           </div>
           <div id='selectPlayers' class='text-center mt-5'>
             <button type="button" id='onePlayer' class='btn btn-outline-light btn-lg mx-3'>One Player</button>

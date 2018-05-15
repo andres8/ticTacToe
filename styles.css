@@ -1,5 +1,6 @@
 
 .gameBack{
+  position: relative;
   height: 460px;
   width: 430px;
   margin-top: 7%;
@@ -8,8 +9,8 @@
   background: radial-gradient(circle, #287d2c, rgba(40,69,41,1) , rgba(40,40,40,1) );;
   border-radius: 6%;
   border: 30px solid rgba(240,180,135,1);
-  border-top-width: 45px;
-  border-bottom-width: 45px;
+  border-top-width: 40px;
+  border-bottom-width: 40px;
   box-shadow: 7px 10px 34px 3px rgba(0, 0, 0, 0.68);
   font-family: 'Pangolin', cursive;
 }
@@ -19,7 +20,7 @@
 }
 
 .boton{
-  height: 123.3px;
+  height: 127.3px;
   width: 121px;
   padding-left: 0px;
   padding-right: 0px;
@@ -33,7 +34,58 @@
   font-family: 'Pangolin', cursive;
 }
 
-.borde{
+.reset{
   position: absolute;
-  display: inline-block;
+  top: 5px;
+  right: 20px;
+  background: none;
+  border-radius: 15px;
+  border: 2px dashed transparent;
+  display: none;
+}
+.divider, .score1, .score2 {
+    position: absolute;
+    font-size: .9rem;
+    margin: 0;
+    display: none;
+}
+.score1, .score2 {
+    font-family: 'Pangolin', cursive;
+    top: 17px;
+    color: rgba(100,60,50,.8);
+}
+.score1 {
+    left: 75px;
+}
+.score1 .points, .score2 .points {
+    position: absolute;
+    text-align: center;
+    bottom: 14px;
+    color: rgba(100,60,50, .9);
+    font-family: 'Pangolin', cursive;
+}
+.divider {
+    top: 5px;
+    left: 141px;
+    font-size: 2rem;
+    font-family: helvetica, sans-serif;
+    font-style: normal;
+    opacity: .2;
+}
+.turnPlayerOne, .turnPlayerTwo {
+    position: absolute;
+    top: 0;
+    width: 170px;
+    height: 50px;
+    z-index: -10;
+    color: white;
+    text-align: center;
+}
+.turnPlayerOne {
+    background: rgba(0,200,200,1);
+    left: 15px;
+}
+.turnPlayerTwo {
+    background: rgba(200,100,100,1);
+    right: 15px;
 }
