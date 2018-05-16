@@ -1,18 +1,23 @@
 
 .gameBack{
   position: relative;
-  height: 460px;
+  height: 450px;
   width: 430px;
-  margin-top: 7%;
+  margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
-  background: radial-gradient(circle, #287d2c, rgba(40,69,41,1) , rgba(40,40,40,1) );;
+  background-color: rgba(240,180,135,1);
   border-radius: 6%;
-  border: 30px solid rgba(240,180,135,1);
-  border-top-width: 40px;
-  border-bottom-width: 40px;
-  box-shadow: 7px 10px 34px 3px rgba(0, 0, 0, 0.68);
   font-family: 'Pangolin', cursive;
+}
+
+#firstScreen, #secondScreen, #thirdScreen, #fourScreen{
+  position: absolute;
+  margin-top: 45px;
+  margin-left: 25px;
+  height: 370px;
+  width: 380px;
+  background: radial-gradient(circle, #287d2c, rgba(40,69,41,1) , rgba(40,40,40,1) );
 }
 
 .title{
@@ -35,6 +40,7 @@
 }
 
 .reset{
+  font-size: 1.3rem;
   position: absolute;
   top: 5px;
   right: 20px;
@@ -57,6 +63,9 @@
 .score1 {
     left: 75px;
 }
+.score2 {
+    left: 160px;
+}
 .score1 .points, .score2 .points {
     position: absolute;
     text-align: center;
@@ -65,7 +74,6 @@
     font-family: 'Pangolin', cursive;
 }
 .divider {
-    top: 5px;
     left: 141px;
     font-size: 2rem;
     font-family: helvetica, sans-serif;
@@ -74,12 +82,14 @@
 }
 .turnPlayerOne, .turnPlayerTwo {
     position: absolute;
+    font-size: 1.5rem;
     top: 0;
     width: 170px;
-    height: 50px;
-    z-index: -10;
+    height: 40px;
+    z-index: -1;
     color: white;
     text-align: center;
+    vertical-align: middle;
 }
 .turnPlayerOne {
     background: rgba(0,200,200,1);

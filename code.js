@@ -56,8 +56,14 @@ $(document).ready(function(){
       }
     }
   }
-  $('#secondScreen, #thirdScreen, #fourScreen').hide();
+  $('#secondScreen, #thirdScreen, #fourScreen, .marcador').hide();
   $('#onePlayer').click(function(){
+    for(var i=0; i<3; i++){
+      for(var j=0 ; j<3; j++){
+        grid[i][j]= '';
+        $('.col[data-i='+i+'][data-j='+j+']').html('');
+      }
+    }
     $('#firstScreen').hide();
     $('#secondScreen').show();
   });
@@ -65,19 +71,19 @@ $(document).ready(function(){
     $('#firstScreen').hide();
     $('#thirdScreen').show();
   });
-  $('#back, #back2').click(function(){
-    $('#thirdScreen, #secondScreen').hide();
+  $('#back, #back2, .reset').click(function(){
+    $('#thirdScreen, #secondScreen, #fourScreen, .marcador').hide();
     $('#firstScreen').show();
   });
   $('#x').click(function(){
     $('#thirdScreen, #secondScreen').hide();
-    $('#fourScreen').show();
+    $('#fourScreen, .marcador').show();
     playerToken = "X";
     computerToken = "O";
   });
   $('#o').click(function(){
     $('#thirdScreen, #secondScreen').hide();
-    $('#fourScreen').show();
+    $('#fourScreen, .marcador').show();
     playerToken = "O";
     computerToken = "X";
   });
@@ -98,6 +104,5 @@ $(document).ready(function(){
         alert('Game Over: '+grid[move.i][move.j]+' Is the winner');
       }
     }
-
   });
 });
