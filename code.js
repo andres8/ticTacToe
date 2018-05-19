@@ -5,6 +5,7 @@ var turn;
 var score1 =0;
 var score2 =0;
 $(document).ready(function(){
+  $('#secondScreen, #thirdScreen, #fourScreen, .marcador').hide();
   var grid = [
     ['','',''],
     ['','',''],
@@ -79,22 +80,21 @@ $(document).ready(function(){
       $('.score2 .points').html(score2);
     }
   }
-  $('#secondScreen, #thirdScreen, #fourScreen, .marcador').hide();
   $('#onePlayer').click(function(){
     ereaseGrid();
     player = 1;
-    $('#firstScreen').hide();
-    $('#secondScreen').show();
+    $('#firstScreen').fadeOut(400);
+    $('#secondScreen').delay(400).fadeIn(500);
   });
   $('#twoPlayer').click(function(){
     ereaseGrid();
     player = 2;
-    $('#firstScreen').hide();
-    $('#thirdScreen').show();
+    $('#firstScreen').fadeOut(400);
+    $('#thirdScreen').delay(400).fadeIn(500);
   });
   $('#back, #back2, .reset').click(function(){
-    $('#thirdScreen, #secondScreen, #fourScreen, .marcador').hide();
-    $('#firstScreen').show();
+    $('#thirdScreen, #secondScreen, #fourScreen, .marcador').fadeOut(400);
+    $('#firstScreen').delay(400).fadeIn(500);
     score1 = 0;
     score2 = 0;
     $('.score1 .points').html(score1);
@@ -103,36 +103,36 @@ $(document).ready(function(){
     $('.turnPlayerO').css('top','3px');
   });
   $('#x').click(function(){
-    $('#thirdScreen, #secondScreen').hide();
-    $('#fourScreen, .marcador').show();
+    $('#thirdScreen, #secondScreen').fadeOut(400);
+    $('#fourScreen, .marcador').delay(400).fadeIn(500);
     playerToken = "X";
     computerToken = "O";
     turn = 'x';
     $('.turnPlayerX').html('Player turn');
     $('.turnPlayerO').html('Computer turn');
-    $('.turnPlayerX').css('top','-38px');
+    $('.turnPlayerX').animate({'top':'-38px'},400);
   });
   $('#o').click(function(){
-    $('#thirdScreen, #secondScreen').hide();
-    $('#fourScreen, .marcador').show();
+    $('#thirdScreen, #secondScreen').fadeOut(400);
+    $('#fourScreen, .marcador').delay(400).fadeIn(500);
     playerToken = "O";
     computerToken = "X";
     turn = 'o';
     $('.turnPlayerX').html('Player turn');
     $('.turnPlayerO').html('Computer turn');
-    $('.turnPlayerX').css('top','-38px');
+    $('.turnPlayerX').animate({'top':'-38px'},400);
   });
   $('#x2').click(function(){
-    $('#thirdScreen, #secondScreen').hide();
-    $('#fourScreen, .marcador').show();
+    $('#thirdScreen, #secondScreen').fadeOut(400);
+    $('#fourScreen, .marcador').delay(400).fadeIn(500);
     turn = 'x';
-    $('.turnPlayerX').css('top','-38px');
+    $('.turnPlayerX').animate({'top':'-38px'},400);
   });
   $('#o2').click(function(){
-    $('#thirdScreen, #secondScreen').hide();
-    $('#fourScreen, .marcador').show();
+    $('#thirdScreen, #secondScreen').fadeOut(400);
+    $('#fourScreen, .marcador').delay(400).fadeIn(500);
     turn = 'o';
-    $('.turnPlayerO').css('top','-38px');
+    $('.turnPlayerO').animate({'top':'-38px'},400);
   });
   $('.col').click(function(){
     if(player==1){
@@ -140,20 +140,20 @@ $(document).ready(function(){
       var i = $(this).data('i');
       var j = $(this).data('j');
       grid[i][j] = playerToken;
-      $('.turnPlayerO').css('top','-38px');
-      $('.turnPlayerX').css('top','3px');
+      $('.turnPlayerO').animate({'top':'-38px'},400);
+      $('.turnPlayerX').animate({'top':'3px'},400);
       if (gameIsOver()){
         setTimeout(alert('Game Over: '+grid[i][j]+' Is the winner'),1000);
-        $('.turnPlayerX').css('top','-38px');
-        $('.turnPlayerO').css('top','3px');
+        $('.turnPlayerX').animate({'top':'-38px'},400);
+        $('.turnPlayerO').animate({'top':'3px'},400);
         marcScore();
         ereaseGrid();
       } else{
           const move = moveAi();
           grid[move.i][move.j] = computerToken;
           $('.col[data-i='+move.i+'][data-j='+move.j+']').html(computerToken);
-          $('.turnPlayerX').css('top','-38px');
-          $('.turnPlayerO').css('top','3px');
+          $('.turnPlayerX').animate({'top':'-38px'},400);
+          $('.turnPlayerO').animate({'top':'3px'},400);
           if (gameIsOver()){
             alert('Uh ho, you lost...');
             marcScore();
@@ -167,8 +167,8 @@ $(document).ready(function(){
         var i = $(this).data('i');
         var j = $(this).data('j');
         grid[i][j] = playerToken;
-        $('.turnPlayerX').css('top','3px');
-        $('.turnPlayerO').css('top','-38px');
+        $('.turnPlayerX').animate({'top':'3px'},400);
+        $('.turnPlayerO').animate({'top':'-38px'},400);
         turn='o';
         if (gameIsOver()){
           alert('Player '+grid[i][j]+' wins!! :D');
@@ -176,12 +176,13 @@ $(document).ready(function(){
           ereaseGrid();
         }
       }else{
-        $(this).html(computerToken);
+        setTimeout(hola,4000);
+        $(this).html(computerToken)
         var i = $(this).data('i');
         var j = $(this).data('j');
         grid[i][j] = computerToken;
-        $('.turnPlayerX').css('top','-38px');
-        $('.turnPlayerO').css('top','3px');
+        $('.turnPlayerX').animate({'top':'-38px'},400);
+        $('.turnPlayerO').animate({'top':'3px'},400);
         turn='x';
         if (gameIsOver()){
           alert('Player '+grid[i][j]+' wins!! :D');

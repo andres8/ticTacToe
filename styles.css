@@ -11,7 +11,7 @@
   font-family: 'Pangolin', cursive;
 }
 
-#firstScreen, #secondScreen, #thirdScreen, #fourScreen{
+.background{
   position: absolute;
   margin-top: 45px;
   margin-left: 25px;
