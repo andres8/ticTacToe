@@ -18,10 +18,21 @@
   height: 370px;
   width: 380px;
   background: radial-gradient(circle, #287d2c, rgba(40,69,41,1) , rgba(40,40,40,1) );
+  color: rgba(220,220,220,1);
 }
 
-.title{
+.result{
+  position: absolute;
+  margin-top: 45px;
+  margin-left: 25px;
+  height: 370px;
+  width: 380px;
+  z-index: 1;
+  background: #1c1a1a80;
   color: rgba(220,220,220,1);
+}
+.textResult{
+  margin-top: 9rem;
 }
 
 .boton{

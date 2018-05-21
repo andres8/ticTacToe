@@ -35,61 +35,60 @@
           <div class="turnPlayerO" style='top: 3px;'>
             <p>Player O turn</p>
           </div>
+          <div class="result text-center">
+            <h1 class='textResult'>hola</h1>
+          </div>
         <div class="background">
-
-
-
-
-        <div id='firstScreen'>
-          <div class='text-center mt-5 title'>
-            <h1>How do you </br> want to play?</h1>
+          <div id='firstScreen'>
+            <div class='text-center mt-5 title'>
+              <h1>How do you </br> want to play?</h1>
+            </div>
+            <div id='selectPlayers' class='text-center mt-5'>
+              <button type="button" id='onePlayer' class='btn btn-outline-light btn-lg mx-3'>One Player</button>
+              <button type="button" id='twoPlayer' class='btn btn-outline-light btn-lg'>Two Player</button>
+            </div>
           </div>
-          <div id='selectPlayers' class='text-center mt-5'>
-            <button type="button" id='onePlayer' class='btn btn-outline-light btn-lg mx-3'>One Player</button>
-            <button type="button" id='twoPlayer' class='btn btn-outline-light btn-lg'>Two Player</button>
+          <div id='secondScreen' class='text-center'>
+            <div class="title mt-5">
+              <h1>Would you like to</br> be X or O?</h1>
+            </div>
+            <div class='mt-5'>
+              <button type="button" id='x' class='btn btn-outline-light btn-lg mx-3'>X</button>
+              <button type="button" id='o' class='btn btn-outline-light btn-lg'>O</button>
+            </div>
+            <div class="mt-5">
+              <button type="button" id='back' class='btn btn-outline-light btn-lg'>back</button>
+            </div>
           </div>
-        </div>
-        <div id='secondScreen' class='text-center'>
-          <div class="title mt-5">
-            <h1>Would you like to</br> be X or O?</h1>
+          <div id='thirdScreen' class='text-center'>
+            <div class="title mt-5">
+              <h1>Player 1 : Would</br>you like X or O?</h1>
+            </div>
+            <div class='mt-5'>
+              <button type="button" id='x2' class='btn btn-outline-light btn-lg mx-3'>X</button>
+              <button type="button" id='o2' class='btn btn-outline-light btn-lg'>O</button>
+            </div>
+            <div class="mt-5">
+              <button type="button" id='back2' class='btn btn-outline-light btn-lg'>back</button>
+            </div>
           </div>
-          <div class='mt-5'>
-            <button type="button" id='x' class='btn btn-outline-light btn-lg mx-3'>X</button>
-            <button type="button" id='o' class='btn btn-outline-light btn-lg'>O</button>
+          <div id='fourScreen'>
+            <div class="row">
+              <div class="col boton" data-i=0 data-j=0></div>
+              <div class="col boton" data-i=0 data-j=1></div>
+              <div class="col boton" data-i=0 data-j=2></div>
+            </div>
+            <div class="row">
+              <div class="col boton" data-i=1 data-j=0></div>
+              <div class="col boton" data-i=1 data-j=1></div>
+              <div class="col boton" data-i=1 data-j=2></div>
+            </div>
+            <div class="row">
+              <div class="col boton" data-i=2 data-j=0></div>
+              <div class="col boton" data-i=2 data-j=1></div>
+              <div class="col boton" data-i=2 data-j=2></div>
+            </div>
           </div>
-          <div class="mt-5">
-            <button type="button" id='back' class='btn btn-outline-light btn-lg'>back</button>
-          </div>
-        </div>
-        <div id='thirdScreen' class='text-center'>
-          <div class="title mt-5">
-            <h1>Player 1 : Would</br>you like X or O?</h1>
-          </div>
-          <div class='mt-5'>
-            <button type="button" id='x2' class='btn btn-outline-light btn-lg mx-3'>X</button>
-            <button type="button" id='o2' class='btn btn-outline-light btn-lg'>O</button>
-          </div>
-          <div class="mt-5">
-            <button type="button" id='back2' class='btn btn-outline-light btn-lg'>back</button>
-          </div>
-        </div>
-        <div id='fourScreen'>
-          <div class="row">
-            <div class="col boton" data-i=0 data-j=0></div>
-            <div class="col boton" data-i=0 data-j=1></div>
-            <div class="col boton" data-i=0 data-j=2></div>
-          </div>
-          <div class="row">
-            <div class="col boton" data-i=1 data-j=0></div>
-            <div class="col boton" data-i=1 data-j=1></div>
-            <div class="col boton" data-i=1 data-j=2></div>
-          </div>
-          <div class="row">
-            <div class="col boton" data-i=2 data-j=0></div>
-            <div class="col boton" data-i=2 data-j=1></div>
-            <div class="col boton" data-i=2 data-j=2></div>
-          </div>
-        </div>
         </div>
       </div>
       <div class="col s12 l3 text-center push-l6 foot mt-5">

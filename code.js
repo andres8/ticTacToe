@@ -5,7 +5,7 @@ var turn;
 var score1 =0;
 var score2 =0;
 $(document).ready(function(){
-  $('#secondScreen, #thirdScreen, #fourScreen, .marcador').hide();
+  $('#secondScreen, #thirdScreen, #fourScreen, .marcador, .result').hide();
   var grid = [
     ['','',''],
     ['','',''],
@@ -80,6 +80,17 @@ $(document).ready(function(){
       $('.score2 .points').html(score2);
     }
   }
+  //show game result
+  function showResult(){
+    var gameState = gameIsOver();
+    if(gameState && player==1 && turn==1){
+      $('.textResult').html("You Won!! :D")
+      $('.result').fadeIn(400).delay(800).fadeOut(400);
+    }else if(gameState && player==1 && turn==2){
+      $('.textResult').html("Uh ho, you lost...")
+      $('.result').fadeIn(400).delay(800).fadeOut(400);
+    }
+  }
   $('#onePlayer').click(function(){
     ereaseGrid();
     player = 1;
@@ -107,7 +118,6 @@ $(document).ready(function(){
     $('#fourScreen, .marcador').delay(400).fadeIn(500);
     playerToken = "X";
     computerToken = "O";
-    turn = 'x';
     $('.turnPlayerX').html('Player turn');
     $('.turnPlayerO').html('Computer turn');
     $('.turnPlayerX').animate({'top':'-38px'},400);
@@ -117,7 +127,6 @@ $(document).ready(function(){
     $('#fourScreen, .marcador').delay(400).fadeIn(500);
     playerToken = "O";
     computerToken = "X";
-    turn = 'o';
     $('.turnPlayerX').html('Player turn');
     $('.turnPlayerO').html('Computer turn');
     $('.turnPlayerX').animate({'top':'-38px'},400);
@@ -142,8 +151,9 @@ $(document).ready(function(){
       grid[i][j] = playerToken;
       $('.turnPlayerO').animate({'top':'-38px'},400);
       $('.turnPlayerX').animate({'top':'3px'},400);
+      turn = 1;
       if (gameIsOver()){
-        setTimeout(alert('Game Over: '+grid[i][j]+' Is the winner'),1000);
+        showResult();
         $('.turnPlayerX').animate({'top':'-38px'},400);
         $('.turnPlayerO').animate({'top':'3px'},400);
         marcScore();
@@ -151,11 +161,12 @@ $(document).ready(function(){
       } else{
           const move = moveAi();
           grid[move.i][move.j] = computerToken;
-          $('.col[data-i='+move.i+'][data-j='+move.j+']').html(computerToken);
+          setTimeout(function(){$('.col[data-i='+move.i+'][data-j='+move.j+']').html(computerToken)
           $('.turnPlayerX').animate({'top':'-38px'},400);
-          $('.turnPlayerO').animate({'top':'3px'},400);
+          $('.turnPlayerO').animate({'top':'3px'},400);},800);
+          turn =2;
           if (gameIsOver()){
-            alert('Uh ho, you lost...');
+            showResult();
             marcScore();
             ereaseGrid();
           }
