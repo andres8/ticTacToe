@@ -89,6 +89,18 @@ $(document).ready(function(){
     }else if(gameState && player==1 && turn==2){
       $('.textResult').html("Uh ho, you lost...")
       $('.result').fadeIn(400).delay(800).fadeOut(400);
+    }else if(gameState && player==2 && turn=='o'){
+      $('.textResult').html("Player X wins!! :D...")
+      $('.result').fadeIn(400).delay(800).fadeOut(400);
+    }
+    else if(gameState && player==2 && turn=='x'){
+      $('.textResult').html("Player O wins!! :D...")
+      $('.result').fadeIn(400).delay(800).fadeOut(400);
+    }
+    else if(gameState == null){
+      $('.textResult').html("It was a draw..");
+      $('.result').fadeIn(400).delay(800).fadeOut(400);
+      ereaseGrid();
     }
   }
   $('#onePlayer').click(function(){
@@ -135,70 +147,82 @@ $(document).ready(function(){
     $('#thirdScreen, #secondScreen').fadeOut(400);
     $('#fourScreen, .marcador').delay(400).fadeIn(500);
     turn = 'x';
+    $('.turnPlayerX').html('Player X turn');
+    $('.turnPlayerO').html('Player O turn');
     $('.turnPlayerX').animate({'top':'-38px'},400);
   });
   $('#o2').click(function(){
     $('#thirdScreen, #secondScreen').fadeOut(400);
     $('#fourScreen, .marcador').delay(400).fadeIn(500);
     turn = 'o';
+    $('.turnPlayerX').html('Player X turn');
+    $('.turnPlayerO').html('Player O turn');
     $('.turnPlayerO').animate({'top':'-38px'},400);
   });
   $('.col').click(function(){
-    if(player==1){
-      $(this).html(playerToken);
-      var i = $(this).data('i');
-      var j = $(this).data('j');
-      grid[i][j] = playerToken;
-      $('.turnPlayerO').animate({'top':'-38px'},400);
-      $('.turnPlayerX').animate({'top':'3px'},400);
-      turn = 1;
-      if (gameIsOver()){
-        showResult();
-        $('.turnPlayerX').animate({'top':'-38px'},400);
-        $('.turnPlayerO').animate({'top':'3px'},400);
-        marcScore();
-        ereaseGrid();
-      } else{
-          const move = moveAi();
-          grid[move.i][move.j] = computerToken;
-          setTimeout(function(){$('.col[data-i='+move.i+'][data-j='+move.j+']').html(computerToken)
-          $('.turnPlayerX').animate({'top':'-38px'},400);
-          $('.turnPlayerO').animate({'top':'3px'},400);},800);
-          turn =2;
-          if (gameIsOver()){
-            showResult();
-            marcScore();
-            ereaseGrid();
-          }
-        }
-    }
-    else{
-      if(turn=='x'){
+    if(grid[$(this).data('i')][$(this).data('j')]==''){
+      if(player==1){
         $(this).html(playerToken);
         var i = $(this).data('i');
         var j = $(this).data('j');
         grid[i][j] = playerToken;
-        $('.turnPlayerX').animate({'top':'3px'},400);
         $('.turnPlayerO').animate({'top':'-38px'},400);
-        turn='o';
+        $('.turnPlayerX').animate({'top':'3px'},400);
+        turn = 1;
+        showResult();
         if (gameIsOver()){
-          alert('Player '+grid[i][j]+' wins!! :D');
+          $('.turnPlayerX').animate({'top':'-38px'},400);
+          $('.turnPlayerO').animate({'top':'3px'},400);
           marcScore();
-          ereaseGrid();
-        }
-      }else{
-        setTimeout(hola,4000);
-        $(this).html(computerToken)
-        var i = $(this).data('i');
-        var j = $(this).data('j');
-        grid[i][j] = computerToken;
-        $('.turnPlayerX').animate({'top':'-38px'},400);
-        $('.turnPlayerO').animate({'top':'3px'},400);
-        turn='x';
-        if (gameIsOver()){
-          alert('Player '+grid[i][j]+' wins!! :D');
-          marcScore();
-          ereaseGrid();
+          setTimeout(ereaseGrid,500);
+          console.log(grid);
+        } else{
+            const move = moveAi();
+            setTimeout(function(){$('.col[data-i='+move.i+'][data-j='+move.j+']').html(computerToken)
+            $('.turnPlayerX').animate({'top':'-38px'},400);
+            $('.turnPlayerO').animate({'top':'3px'},400);},800);
+            grid[move.i][move.j] = computerToken;
+            turn =2;
+            setTimeout(function(){
+              if (gameIsOver()){
+              showResult();
+              marcScore();
+              ereaseGrid();
+              }
+            },1000);
+          }
+      }
+      else{
+        if(turn=='x'){
+          $(this).html(playerToken);
+          var i = $(this).data('i');
+          var j = $(this).data('j');
+          grid[i][j] = playerToken;
+          $('.turnPlayerX').animate({'top':'3px'},400);
+          $('.turnPlayerO').animate({'top':'-38px'},400);
+          turn='o';
+          setTimeout(function(){
+            if(gameIsOver()){
+            showResult();
+            marcScore();
+            ereaseGrid();
+            }
+          },500);
+        }else{
+          $(this).html(computerToken)
+          var i = $(this).data('i');
+          var j = $(this).data('j');
+          grid[i][j] = computerToken;
+          $('.turnPlayerX').animate({'top':'-38px'},400);
+          $('.turnPlayerO').animate({'top':'3px'},400);
+          turn='x';
+          setTimeout(function(){
+            if(gameIsOver()){
+            showResult();
+            marcScore();
+            ereaseGrid();
+            }
+          },500);
         }
       }
     }
