@@ -184,8 +184,8 @@ $(document).ready(function(){
             grid[move.i][move.j] = computerToken;
             turn =2;
             setTimeout(function(){
-              if (gameIsOver()){
               showResult();
+              if (gameIsOver()){
               marcScore();
               ereaseGrid();
               }
@@ -202,8 +202,8 @@ $(document).ready(function(){
           $('.turnPlayerO').animate({'top':'-38px'},400);
           turn='o';
           setTimeout(function(){
-            if(gameIsOver()){
             showResult();
+            if(gameIsOver()){
             marcScore();
             ereaseGrid();
             }
@@ -217,8 +217,8 @@ $(document).ready(function(){
           $('.turnPlayerO').animate({'top':'3px'},400);
           turn='x';
           setTimeout(function(){
-            if(gameIsOver()){
             showResult();
+            if(gameIsOver()){
             marcScore();
             ereaseGrid();
             }
