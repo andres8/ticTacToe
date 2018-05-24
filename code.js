@@ -156,6 +156,13 @@ $(document).ready(function(){
       $('.textResult').html("It was a draw..");
       $('.result').fadeIn(400).delay(800).fadeOut(400);
       ereaseGrid();
+      if(jugador===1){
+        var j = Math.floor((Math.random() * 3)+0);
+        var i = Math.floor((Math.random() * 3)+0)
+        setTimeout(function(){$('.col[data-i='+i+'][data-j='+j+']').html(computerToken)},200);
+        grid[i][j] = computerToken;
+        turn = 2;
+      }
     }
   }
   $('#onePlayer').click(function(){
@@ -230,9 +237,8 @@ $(document).ready(function(){
           $('.turnPlayerO').animate({'top':'3px'},400);
           marcScore();
           setTimeout(ereaseGrid,500);
-          console.log(grid);
         } else{
-            const move = moveAi();
+            if(turn ===1){const move = moveAi();
             setTimeout(function(){$('.col[data-i='+move.i+'][data-j='+move.j+']').html(computerToken)},200);
             $('.turnPlayerX').animate({'top':'-38px'},400);
             $('.turnPlayerO').animate({'top':'3px'},400);
@@ -245,7 +251,8 @@ $(document).ready(function(){
               ereaseGrid();
               }
             },1000);
-          }
+            }
+        }
       }
       else{
         if(turn=='x'){
