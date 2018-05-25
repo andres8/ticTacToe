@@ -56,8 +56,8 @@ $(document).ready(function(){
       const values = [];
       for(var i=0; i<3; i++){
         for (var j=0; j<3; j++){
-          const gridCopy = _.cloneDeep(newGrid);
-          //const gridCopy = JSON.parse(JSON.stringify(newGrid));
+          //const gridCopy = _.cloneDeep(newGrid);
+          const gridCopy = JSON.parse(JSON.stringify(newGrid));
           if(gridCopy[i][j]!== '') continue;
           gridCopy[i][j] = player;
           const value = minmax(gridCopy, depth + 1, (player === playerToken) ? computerToken : playerToken);
@@ -107,14 +107,6 @@ $(document).ready(function(){
   //Computer movement
   function moveAi(){
     return minmax(grid, 0, computerToken);
-    //for(var i=0; i<3; i++){
-      //for(var j=0 ; j<3; j++){
-        //if(grid[i][j]== ''){
-          //return {i:i,
-            //      j:j}
-        //}
-      //}
-    //}
   }
   //Restart Grid
   function ereaseGrid() {
@@ -162,6 +154,8 @@ $(document).ready(function(){
         setTimeout(function(){$('.col[data-i='+i+'][data-j='+j+']').html(computerToken)},200);
         grid[i][j] = computerToken;
         turn = 2;
+        $('.turnPlayerX').animate({'top':'-38px'},400);
+        $('.turnPlayerO').animate({'top':'3px'},400);
       }
     }
   }
